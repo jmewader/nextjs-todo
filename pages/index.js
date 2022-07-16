@@ -1,16 +1,16 @@
 import { Grommet, Main } from "grommet";
 
 /*COMPONENTS*/
-import MainSidebar from "../components/sidebar";
 import MainTodo from "../components/Todo";
+import MainLayout from "../components/MainLayout";
 
 export default function Home() {
   return (
     <Grommet>
-      <Main flex width="xxlarge" height="xxlarge" direction="row">
-        <MainSidebar />
+      <MainLayout>
+    
         <MainTodo />
-      </Main>
+      </MainLayout>
     </Grommet>
   );
 }

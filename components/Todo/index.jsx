@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 import {
   Box,
@@ -11,12 +12,16 @@ import {
   CheckBoxGroup,
   Tabs,
   Tab,
+  Nav,
 } from "grommet";
+import TabsBlock from "./Tabs";
 
-const MainTodo = () => {
+const MainTodo = ({ todoListStatic }) => {
   const [userInput, setUserInput] = useState("");
   const [value, setValue] = useState({});
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(
+    todoListStatic && todoListStatic.length > 0 ? todoListStatic : []
+  );
 
   const changedList = (e) => {
     e.preventDefault();
@@ -26,10 +31,14 @@ const MainTodo = () => {
   };
 
   const handleSubmit = (e) => {
+    let item = {
+      text: "",
+    };
     e.preventDefault();
 
     if (userInput != "") {
-      setTodoList([userInput, ...todoList]);
+      item.text = userInput;
+      setTodoList([item, ...todoList]);
     }
 
     setUserInput("");
@@ -42,13 +51,13 @@ const MainTodo = () => {
     setTodoList(newList);
   };
 
-  return (
-    <Box align="center" pad="medium" width="xxlarge">
-      <Heading size="100px" color="rgba(175, 47, 47, 0.15)">
-        todos
-      </Heading>
+  console.log("==", todoList);
 
-      <Box background="#fff">
+  return (
+    <Box align="center" pad="medium" width="100%">
+      <Heading size="100px">Todos</Heading>
+
+      <Box width="50%" pad="40px" background="#fff">
         <Form
           value={value}
           onChange={(nextValue) => setValue(nextValue)}
@@ -64,19 +73,20 @@ const MainTodo = () => {
               placeholder="What needs to be done?"
             />
 
-            <Button
-              onClick={handleSubmit}
-              type="submit"
-              primary
-              label="Submit"
-            />
-
+            <Box width="160px">
+              <Button
+                onClick={handleSubmit}
+                type="submit"
+                primary
+                label="Submit"
+              />
+            </Box>
             <Box>
               {todoList.length >= 1
                 ? todoList.map((todo, index) => {
                     return (
                       <Box direction="row" key={index}>
-                        <CheckBoxGroup options={[todo]} />
+                        <CheckBoxGroup options={[todo.text]} />
                         <Button
                           type="submit"
                           primary
@@ -91,28 +101,10 @@ const MainTodo = () => {
                     );
                   })
                 : null}
-              {todoList.length >= 1 && (
-                <Box>
-                  <span>{todoList.length}items left</span>
-                  <Tabs>
-                    <Tab title="All" />
-
-                    <Tab title="Active" />
-
-                    <Tab title="Completed" />
-                  </Tabs>
-                </Box>
-              )}
+              <TabsBlock todoList={todoList} />
             </Box>
           </Box>
         </Form>
-      </Box>
-
-      <Box align="center" width="small">
-        <Paragraph color="#bfbfbf" size="10px">
-          Double-click to edit a todo Created by Hannes Johansson based on React
-          example by petehunt Part of TodoMVC
-        </Paragraph>
       </Box>
     </Box>
   );
