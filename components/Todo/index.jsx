@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Basket from "/public/jsx/Basket";
 
 import {
   Box,
@@ -51,13 +52,11 @@ const MainTodo = ({ todoListStatic }) => {
     setTodoList(newList);
   };
 
-  console.log("==", todoList);
-
   return (
     <Box align="center" pad="medium" width="100%">
       <Heading size="100px">Todos</Heading>
 
-      <Box width="50%" pad="40px" background="#fff">
+      <Box width="40%" pad="40px" background="#fff">
         <Form
           value={value}
           onChange={(nextValue) => setValue(nextValue)}
@@ -85,17 +84,22 @@ const MainTodo = ({ todoListStatic }) => {
               {todoList.length >= 1
                 ? todoList.map((todo, index) => {
                     return (
-                      <Box direction="row" key={index}>
+                      <Box
+                        width="100%"
+                        justify="between"
+                        direction="row"
+                        key={index}
+                      >
                         <CheckBoxGroup options={[todo.text]} />
                         <Button
                           type="submit"
-                          primary
+                          // primary
                           onClick={(e) => {
                             e.preventDefault();
                             handleDelete(todo);
                           }}
                         >
-                          Х
+                          <Basket />
                         </Button>
                       </Box>
                     );
