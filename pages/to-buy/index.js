@@ -20,6 +20,21 @@ export async function getStaticProps() {
           text: "Манго",
           isChecked: false,
         },
+        {
+          id: 4,
+          text: "Куркума",
+          isChecked: false,
+        },
+        {
+          id: 5,
+          text: "Молоко",
+          isChecked: false,
+        },
+        {
+          id: 6,
+          text: "Петрушка",
+          isChecked: false,
+        },
       ],
       title: "Products",
     },

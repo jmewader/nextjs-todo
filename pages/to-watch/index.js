@@ -20,6 +20,26 @@ export async function getStaticProps() {
           text: "Толкин",
           isChecked: false,
         },
+        {
+          id: 4,
+          text: "Мгла",
+          isChecked: false,
+        },
+        {
+          id: 5,
+          text: "Пролетая над гнездом кукушки",
+          isChecked: false,
+        },
+        {
+          id: 6,
+          text: "Бегущий по лезвию",
+          isChecked: false,
+        },
+        {
+          id: 7,
+          text: "Сияние",
+          isChecked: false,
+        },
       ],
       title: "Movies",
     },

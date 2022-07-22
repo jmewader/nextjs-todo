@@ -18,6 +18,18 @@ const MainTodo = ({ todoListStatic }) => {
   );
   const [filter, setFilter] = useState(ALL);
 
+  const visibleTasks = useMemo(() => {
+    if (filter === ACTIVE) {
+      return todoList.filter((_t) => !_t.isChecked);
+    }
+
+    if (filter === COMPLETED) {
+      return todoList.filter((_t) => _t.isChecked);
+    }
+
+    return todoList;
+  }, [todoList, filter]);
+
   const addTask = useCallback((text) => {
     const newTask = {
       id: uuidv4(),
@@ -28,7 +40,7 @@ const MainTodo = ({ todoListStatic }) => {
     setTodoList((_s) => [..._s, newTask]);
   }, []);
 
-  const toggleAllTasks = useCallback(() => {
+  const handleSelectAll = useCallback(() => {
     setTodoList((_s) => {
       if (!IsNotEmptyArray(_s)) {
         return _s;
@@ -72,18 +84,6 @@ const MainTodo = ({ todoListStatic }) => {
     setFilter((_f) => (newFilter !== _f ? newFilter : _f));
   }, []);
 
-  const visibleTasks = useMemo(() => {
-    if (filter === ACTIVE) {
-      return todoList.filter((_t) => !_t.isChecked);
-    }
-
-    if (filter === COMPLETED) {
-      return todoList.filter((_t) => _t.isChecked);
-    }
-
-    return todoList;
-  }, [todoList, filter]);
-
   return (
     <Box align="center" pad="medium" width="100%">
       <Heading size="60px">Todos</Heading>
@@ -92,7 +92,7 @@ const MainTodo = ({ todoListStatic }) => {
         <InputBlock
           list={todoList}
           onAdd={addTask}
-          onToggleAll={toggleAllTasks}
+          handleSelectAll={handleSelectAll}
         />
         <List
           list={visibleTasks}

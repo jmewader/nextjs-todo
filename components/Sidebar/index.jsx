@@ -1,33 +1,57 @@
 import React from "react";
 import Link from "next/link";
 
-import { Box, Sidebar, Button } from "grommet";
+import { Box, Sidebar } from "grommet";
 
 const MainSidebar = () => {
   return (
-    <Sidebar width="180px" pad="10px" background="white">
-      <Box>
-        <Link href="/">
-          <Button text primary hoverIndicator={{ color: "#bfa2f6" }}>
-            Home
-          </Button>
+    <Sidebar
+      border={{
+        color: "#e0e0e0",
+        size: "2px",
+        style: "solid",
+        side: "right",
+      }}
+      width="180px"
+      pad="10px"
+      background="white"
+    >
+      <Box
+        border={{
+          color: "#e0e0e0",
+          size: "xsmall",
+          style: "dashed",
+          side: "bottom",
+        }}
+        pad="15px"
+      >
+        <Link hoverIndicator={{ color: "#bfa2f6" }} href="/">
+          Home
         </Link>
       </Box>
 
-      <Box>
-        <Link href="/to-buy">
-          <Button primary hoverIndicator={{ color: "#bfa2f6" }}>
-            Products
-          </Button>
-        </Link>
+      <Box
+        border={{
+          color: "#e0e0e0",
+          size: "xsmall",
+          style: "dashed",
+          side: "bottom",
+        }}
+        pad="15px"
+      >
+        <Link href="/to-buy">Products</Link>
       </Box>
 
-      <Box>
-        <Link href="/to-watch">
-          <Button primary hoverIndicator={{ color: "#bfa2f6" }}>
-            Movie
-          </Button>
-        </Link>
+      <Box
+        border={{
+          color: "#e0e0e0",
+          size: "xsmall",
+          style: "dashed",
+          side: "bottom",
+        }}
+        pad="15px"
+      >
+        <Link href="/to-watch">Movie</Link>
       </Box>
     </Sidebar>
   );

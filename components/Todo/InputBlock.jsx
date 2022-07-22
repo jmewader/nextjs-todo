@@ -9,7 +9,7 @@ import { Down } from "grommet-icons";
 /* HELPERS */
 import { IsSet } from "../../helpers/ValueTests";
 
-const InputBlock = ({ onAdd, onToggleAll }) => {
+const InputBlock = ({ onAdd, handleSelectAll }) => {
   const [userInput, setUserInput] = useState("");
 
   const changedList = useCallback((e) => setUserInput(e.target.value), []);
@@ -30,7 +30,7 @@ const InputBlock = ({ onAdd, onToggleAll }) => {
         icon={<Down />}
         hoverIndicator
         focusIndicator
-        onClick={onToggleAll}
+        onClick={handleSelectAll}
       />
 
       <TextInput
