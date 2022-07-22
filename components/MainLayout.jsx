@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import Link from "next/link";
+import React from "react";
 import MainSidebar from "./sidebar";
 
-import { Main } from "grommet";
+import { Main, Box } from "grommet";
 
-const MainLayout = ({children}) => {
+const MainLayout = ({ children }) => {
   return (
-    <Main flex width="100%" height="xxlarge" direction="row">
-      <MainSidebar />
-      {children}
+    <Main flex width="100%">
+      <Box direction="row" height="100vh">
+        <MainSidebar />
+        {children}
+      </Box>
     </Main>
   );
 };

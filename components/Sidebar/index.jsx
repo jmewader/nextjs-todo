@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
-import { Box, Paragraph, Sidebar, Header, Markdown, Button } from "grommet";
+import { Box, Sidebar, Button } from "grommet";
 
 const MainSidebar = () => {
   return (
-    <Sidebar pad="10px" margin="7px" width="small" background="white">
+    <Sidebar width="180px" pad="10px" background="white">
       <Box>
         <Link href="/">
-          <Button primary hoverIndicator={{ color: "#bfa2f6" }}>
+          <Button text primary hoverIndicator={{ color: "#bfa2f6" }}>
             Home
           </Button>
         </Link>
@@ -22,14 +22,6 @@ const MainSidebar = () => {
         </Link>
       </Box>
 
-      <Box
-        border={{
-          color: "#c5c5c5",
-          size: "xsmall",
-          style: "dashed",
-          side: "top",
-        }}
-      />
       <Box>
         <Link href="/to-watch">
           <Button primary hoverIndicator={{ color: "#bfa2f6" }}>
@@ -37,14 +29,6 @@ const MainSidebar = () => {
           </Button>
         </Link>
       </Box>
-      <Box
-        border={{
-          color: "#c5c5c5",
-          size: "xsmall",
-          style: "dashed",
-          side: "top",
-        }}
-      />
     </Sidebar>
   );
 };

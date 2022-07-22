@@ -1,4 +1,3 @@
-import { Header, Box, Main } from "grommet";
 import MainLayout from "../../components/MainLayout";
 import MainTodo from "../../components/Todo";
 
@@ -9,14 +8,17 @@ export async function getStaticProps() {
         {
           id: 1,
           text: "Игра Джеральда",
+          isChecked: false,
         },
         {
           id: 2,
           text: "Век Адалин",
+          isChecked: false,
         },
         {
           id: 3,
           text: "Толкин",
+          isChecked: false,
         },
       ],
       title: "Movies",
