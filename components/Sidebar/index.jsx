@@ -20,7 +20,7 @@ const MainSidebar = () => {
         border={{
           color: "#e0e0e0",
           size: "xsmall",
-          style: "dashed",
+          style: "dotted",
           side: "bottom",
         }}
         pad="15px"
@@ -34,7 +34,7 @@ const MainSidebar = () => {
         border={{
           color: "#e0e0e0",
           size: "xsmall",
-          style: "dashed",
+          style: "dotted",
           side: "bottom",
         }}
         pad="15px"
@@ -46,7 +46,7 @@ const MainSidebar = () => {
         border={{
           color: "#e0e0e0",
           size: "xsmall",
-          style: "dashed",
+          style: "dotted",
           side: "bottom",
         }}
         pad="15px"

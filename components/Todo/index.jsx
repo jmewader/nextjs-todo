@@ -86,9 +86,19 @@ const MainTodo = ({ todoListStatic }) => {
 
   return (
     <Box align="center" pad="medium" width="100%">
-      <Heading size="60px">Todos</Heading>
+      <Heading size="60px">T o d o s</Heading>
 
-      <Box width="40%" pad="40px" background="#fff">
+      <Box
+        border={{
+          color: "#e0e0e0",
+          size: "xsmall",
+          style: "dotted",
+        }}
+        round="small"
+        width="40%"
+        pad="40px"
+        background="#fff"
+      >
         <InputBlock
           list={todoList}
           onAdd={addTask}

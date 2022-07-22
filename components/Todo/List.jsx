@@ -20,7 +20,7 @@ const Item = (props) => {
     <Box width="100%" justify="between" direction="row">
       <CheckBox label={text} checked={isChecked} onChange={toggleCheckbox} />
 
-      <Button type="submit" onClick={deleteItem}>
+      <Button onClick={deleteItem}>
         <Basket />
       </Button>
     </Box>
@@ -29,7 +29,7 @@ const Item = (props) => {
 
 const List = ({ list, ...others }) => {
   return (
-    <Box pad="30px 0px" gap="small">
+    <Box pad="30px 0px 30px 10px" gap="small">
       {list.map((todo) => {
         return <Item key={todo.id} {...todo} {...others} />;
       })}
