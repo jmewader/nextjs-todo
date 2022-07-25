@@ -107,10 +107,18 @@ const MainTodo = ({ todoListStatic }) => {
           addNewItem={addNewItem}
           handleSelectAll={handleSelectAll}
         />
-        <List list={showList} initItem={initItem} deleteItem={handleDelete} />
-        <Box>
-          <TabsBlock todoList={todoList} sortList={handleSorting} />
-        </Box>
+        {showList.length > 0 && (
+          <>
+            <List
+              list={showList}
+              initItem={initItem}
+              deleteItem={handleDelete}
+            />
+            <Box>
+              <TabsBlock todoList={todoList} sortList={handleSorting} />
+            </Box>
+          </>
+        )}
       </Box>
     </Box>
   );
