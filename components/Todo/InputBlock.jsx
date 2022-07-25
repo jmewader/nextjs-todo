@@ -9,34 +9,32 @@ import { Down } from "grommet-icons";
 /* HELPERS */
 import { IsSet } from "../../helpers/ValueTests";
 
-const InputBlock = ({ onAdd, handleSelectAll }) => {
+const InputBlock = ({ handleSelectAll, addNewItem }) => {
   const [userInput, setUserInput] = useState("");
 
-  const changedList = useCallback((e) => setUserInput(e.target.value), []);
+  const changedList = useCallback(
+    (event) => setUserInput(event.target.value),
+    []
+  );
 
-  const onKeyDown = useCallback(
-    (e) => {
-      if (e.keyCode === 13 && IsSet(userInput)) {
-        onAdd(userInput);
+  const onClickEnter = useCallback(
+    (event) => {
+      if (IsSet(userInput) && event.keyCode === 13) {
+        addNewItem(userInput);
         setUserInput("");
       }
     },
-    [userInput, onAdd]
+    [userInput, addNewItem]
   );
 
   return (
     <Box direction="row" gap="small">
-      <Button
-        icon={<Down />}
-        hoverIndicator
-        focusIndicator
-        onClick={handleSelectAll}
-      />
+      <Button icon={<Down />} onClick={handleSelectAll} />
 
       <TextInput
-        onChange={changedList}
         value={userInput}
-        onKeyDown={onKeyDown}
+        onChange={changedList}
+        onKeyDown={onClickEnter}
         placeholder="What needs to be done?"
       />
     </Box>

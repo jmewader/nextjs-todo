@@ -5,18 +5,18 @@ import { Box, Tabs, Tab } from "grommet";
 /* CONST */
 import { ALL, ACTIVE, COMPLETED } from ".";
 
-const TabsBlock = ({ todoList, onFilter }) => {
-  const filterAll = useCallback(() => {
-    onFilter(ALL);
-  }, [onFilter]);
+const TabsBlock = ({ todoList, sortList }) => {
+  const sortingAll = useCallback(() => {
+    sortList(ALL);
+  }, [sortList]);
 
-  const filterActive = useCallback(() => {
-    onFilter(ACTIVE);
-  }, [onFilter]);
+  const sortingActive = useCallback(() => {
+    sortList(ACTIVE);
+  }, [sortList]);
 
-  const filterCompleted = useCallback(() => {
-    onFilter(COMPLETED);
-  }, [onFilter]);
+  const sortingCompleted = useCallback(() => {
+    sortList(COMPLETED);
+  }, [sortList]);
 
   return (
     <Box direction="row" align="center" gap="small">
@@ -24,15 +24,15 @@ const TabsBlock = ({ todoList, onFilter }) => {
         <Tabs>
           <Tab
             title="All"
-            onClick={filterAll}
+            onClick={sortingAll}
           />
           <Tab
             title="Active"
-            onClick={filterActive}
+            onClick={sortingActive}
           />
           <Tab
             title="Completed"
-            onClick={filterCompleted}
+            onClick={sortingCompleted}
           />
         </Tabs>
       )}

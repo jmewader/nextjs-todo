@@ -3,24 +3,25 @@ import { useCallback } from "react";
 /* COMPONENTS */
 import { Box, Button, CheckBox } from "grommet";
 
+/* IMG */
 import Basket from "/public/jsx/Basket";
 
 const Item = (props) => {
-  const { text, id, isChecked, onDelete, onTaskToggle } = props;
+  const { text, id, isChecked, initItem, deleteItem } = props;
 
-  const toggleCheckbox = useCallback(() => {
-    onTaskToggle(id);
-  }, [id, onTaskToggle]);
+  const handleChecked = useCallback(() => {
+    initItem(id);
+  }, [id, initItem]);
 
-  const deleteItem = useCallback(() => {
-    onDelete(id);
-  }, [id, onDelete]);
+  const deleteTodo = useCallback(() => {
+    deleteItem(id);
+  }, [id, deleteItem]);
 
   return (
     <Box width="100%" justify="between" direction="row">
-      <CheckBox label={text} checked={isChecked} onChange={toggleCheckbox} />
+      <CheckBox label={text} onChange={handleChecked} checked={isChecked} />
 
-      <Button onClick={deleteItem}>
+      <Button onClick={deleteTodo}>
         <Basket />
       </Button>
     </Box>
