@@ -106,6 +106,7 @@ const MainTodo = ({ todoListStatic }) => {
           list={todoList}
           addNewItem={addNewItem}
           handleSelectAll={handleSelectAll}
+          showBtn={showList.length > 0}
         />
         {showList.length > 0 && (
           <>

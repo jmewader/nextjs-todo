@@ -9,7 +9,7 @@ import { Down } from "grommet-icons";
 /* HELPERS */
 import { IsSet } from "../../helpers/ValueTests";
 
-const InputBlock = ({ handleSelectAll, addNewItem }) => {
+const InputBlock = ({ handleSelectAll, addNewItem, showBtn }) => {
   const [userInput, setUserInput] = useState("");
 
   const changedList = useCallback(
@@ -29,7 +29,7 @@ const InputBlock = ({ handleSelectAll, addNewItem }) => {
 
   return (
     <Box direction="row" gap="small">
-      <Button icon={<Down />} onClick={handleSelectAll} />
+      {showBtn && <Button icon={<Down />} onClick={handleSelectAll} />}
 
       <TextInput
         value={userInput}
