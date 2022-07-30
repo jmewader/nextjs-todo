@@ -87,8 +87,6 @@ const MainTodo = ({ todoListStatic }) => {
     });
   }, []);
 
-  console.log(todoList);
-
   return (
     <Box align="center" pad="medium" width="100%">
       <Heading size="60px">T o d o s</Heading>
