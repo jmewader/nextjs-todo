@@ -108,13 +108,14 @@ const MainTodo = ({ todoListStatic }) => {
           handleSelectAll={handleSelectAll}
           showBtn={showList.length > 0}
         />
-        {showList.length > 0 && (
-          <List list={showList} initItem={initItem} deleteItem={handleDelete} />
-        )}
+
         {todoList.length > 0 && (
           <Box>
             <TabsBlock todoList={todoList} sortList={handleSorting} />
           </Box>
+        )}
+        {showList.length > 0 && (
+          <List list={showList} initItem={initItem} deleteItem={handleDelete} />
         )}
       </Box>
     </Box>

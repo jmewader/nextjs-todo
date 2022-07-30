@@ -5,7 +5,7 @@ import { Box, Tabs, Tab } from "grommet";
 import { ALL, ACTIVE, COMPLETED } from "./";
 
 /* ICONS */
-import { List, Radial, Checkmark } from "grommet-icons";
+import { List, Checkbox, CheckboxSelected } from "grommet-icons";
 
 const TabsBlock = ({ todoList, sortList }) => {
   const sortingAll = useCallback(() => {
@@ -24,8 +24,8 @@ const TabsBlock = ({ todoList, sortList }) => {
     <Box direction="row" align="center" gap="small" margin="30px 0px 0px">
       <Tabs>
         <Tab title={<List />} onClick={sortingAll} />
-        <Tab title={<Radial />} onClick={sortingActive} />
-        <Tab title={<Checkmark />} onClick={sortingCompleted} />
+        <Tab title={<Checkbox />} onClick={sortingActive} />
+        <Tab title={<CheckboxSelected />} onClick={sortingCompleted} />
       </Tabs>
     </Box>
   );
