@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Box, Sidebar } from "grommet";
+import { Box, Sidebar, Clock } from "grommet";
 
 const MainSidebar = () => {
   return (
@@ -16,6 +16,7 @@ const MainSidebar = () => {
       pad="10px"
       background="white"
     >
+      <Clock type="analog" />
       <Box
         border={{
           color: "#e0e0e0",

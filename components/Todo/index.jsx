@@ -87,6 +87,8 @@ const MainTodo = ({ todoListStatic }) => {
     });
   }, []);
 
+  console.log(todoList);
+
   return (
     <Box align="center" pad="medium" width="100%">
       <Heading size="60px">T o d o s</Heading>
@@ -109,16 +111,12 @@ const MainTodo = ({ todoListStatic }) => {
           showBtn={showList.length > 0}
         />
         {showList.length > 0 && (
-          <>
-            <List
-              list={showList}
-              initItem={initItem}
-              deleteItem={handleDelete}
-            />
-            <Box>
-              <TabsBlock todoList={todoList} sortList={handleSorting} />
-            </Box>
-          </>
+          <List list={showList} initItem={initItem} deleteItem={handleDelete} />
+        )}
+        {todoList.length > 0 && (
+          <Box>
+            <TabsBlock todoList={todoList} sortList={handleSorting} />
+          </Box>
         )}
       </Box>
     </Box>

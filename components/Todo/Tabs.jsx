@@ -19,23 +19,12 @@ const TabsBlock = ({ todoList, sortList }) => {
   }, [sortList]);
 
   return (
-    <Box direction="row" align="center" gap="small">
-      {todoList.length >= 1 && (
+    <Box direction="row" align="center" gap="small" margin="30px 0px 0px">
         <Tabs>
-          <Tab
-            title="All"
-            onClick={sortingAll}
-          />
-          <Tab
-            title="Active"
-            onClick={sortingActive}
-          />
-          <Tab
-            title="Completed"
-            onClick={sortingCompleted}
-          />
+          <Tab title="All" onClick={sortingAll} />
+          <Tab title="Active" onClick={sortingActive} />
+          <Tab title="Completed" onClick={sortingCompleted} />
         </Tabs>
-      )}
     </Box>
   );
 };

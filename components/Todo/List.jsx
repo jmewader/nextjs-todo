@@ -30,7 +30,7 @@ const Item = (props) => {
 
 const List = ({ list, ...others }) => {
   return (
-    <Box pad="30px 0px 30px 10px" gap="small">
+    <Box pad="30px 0px 0px 10px" gap="small">
       {list.map((todo) => {
         return <Item key={todo.id} {...todo} {...others} />;
       })}
