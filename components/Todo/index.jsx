@@ -43,15 +43,15 @@ const MainTodo = ({ todoListStatic }) => {
     setTodoList((list) => [...list, newTask]);
   }, []);
 
-  const handleSorting = useCallback((tab) => {
+  const sortingItems = useCallback((tab) => {
     setSorting((item) => (tab !== item ? tab : item));
   }, []);
 
-  const handleDelete = useCallback((id) => {
+  const removeItem = useCallback((id) => {
     setTodoList((list) => list.filter((item) => item.id != id));
   }, []);
 
-  const handleSelectAll = useCallback(() => {
+  const selectAll = useCallback(() => {
     setTodoList((list) => {
       if (!IsNotEmptyArray(list)) {
         return list;
@@ -77,9 +77,7 @@ const MainTodo = ({ todoListStatic }) => {
 
       if (itemId >= 0) {
         const tempTodoList = [...list];
-
         tempTodoList[itemId].isChecked = !tempTodoList[itemId].isChecked;
-
         return tempTodoList;
       }
 
@@ -105,17 +103,17 @@ const MainTodo = ({ todoListStatic }) => {
         <InputBlock
           list={todoList}
           addNewItem={addNewItem}
-          handleSelectAll={handleSelectAll}
+          selectAll={selectAll}
           showBtn={showList.length > 0}
         />
 
         {todoList.length > 0 && (
           <Box>
-            <TabsBlock todoList={todoList} sortList={handleSorting} />
+            <TabsBlock todoList={todoList} sortList={sortingItems} />
           </Box>
         )}
         {showList.length > 0 && (
-          <List list={showList} initItem={initItem} deleteItem={handleDelete} />
+          <List list={showList} initItem={initItem} deleteItem={removeItem} />
         )}
       </Box>
     </Box>

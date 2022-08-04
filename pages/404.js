@@ -5,7 +5,7 @@ const notFound = () => {
   return (
     <MainLayout>
       <Box align="center" justify="center" pad="medium" width="100%">
-        <Paragraph > Такой страницы не существует...</Paragraph>
+        <Paragraph> Такой страницы не существует...</Paragraph>
       </Box>
     </MainLayout>
   );
