@@ -7,7 +7,7 @@ import { ALL, ACTIVE, COMPLETED } from "./";
 /* ICONS */
 import { List, Checkbox, CheckboxSelected } from "grommet-icons";
 
-const TabsBlock = ({ todoList, sortList }) => {
+const TabsBlock = ({ sortList }) => {
   const sortingAll = useCallback(() => {
     sortList(ALL);
   }, [sortList]);
