@@ -74,9 +74,9 @@ const MainTodo = ({ todoListStatic }) => {
   const initItem = useCallback((id) => {
     setTodoList((list) => {
       const itemId = list.findIndex((item) => item.id === id);
+      const tempTodoList = [...list];
 
       if (itemId >= 0) {
-        const tempTodoList = [...list];
         tempTodoList[itemId].isChecked = !tempTodoList[itemId].isChecked;
         return tempTodoList;
       }
