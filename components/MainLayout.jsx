@@ -1,5 +1,5 @@
 import React from "react";
-import MainSidebar from "./sidebar";
+import MainSidebar from "./Sidebar/sidebar";
 
 import { Main, Box } from "grommet";
 
