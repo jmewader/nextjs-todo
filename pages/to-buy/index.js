@@ -1,3 +1,4 @@
+import { Grommet } from "grommet";
 import MainLayout from "../../components/MainLayout";
 import MainTodo from "../../components/Todo";
 
@@ -43,9 +44,11 @@ export async function getStaticProps() {
 
 const ProductsList = ({ products }) => {
   return (
-    <MainLayout>
-      <MainTodo todoListStatic={products} />
-    </MainLayout>
+    <Grommet>
+      <MainLayout>
+        <MainTodo todoListStatic={products} />
+      </MainLayout>
+    </Grommet>
   );
 };
 
